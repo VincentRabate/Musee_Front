@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import questions from "./questions.js";
 import Option from "./components/options.vue";
+import EndScreen from "./components/EndScreen.vue";
 
 const quizCompleted = ref(false);
 const currentQuestion = ref(0);
@@ -93,15 +94,13 @@ shuffleQuestions();
 }
 
 body {
-  width: 400px;
-  height: 872px;
   background-color: #fff;
   color: black;
   background-image: url(./assets/background_app_musee.svg);
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  left: -50px;
 }
 
 .score {
@@ -112,16 +111,22 @@ body {
 }
 
 .image {
+  position: relative;
+  left: 10%;
   height: 100%;
+  width: 80%;
   object-fit: cover;
+  margin-bottom: 1rem;
 }
 
 .app {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   padding: 2rem;
   height: 100vh;
+  position: relative;
+  left: 50px;
 }
 
 h1 {
@@ -139,6 +144,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
@@ -155,6 +161,8 @@ h1 {
 
 .options {
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .option {
@@ -205,6 +213,8 @@ button {
   font-weight: 500;
   text-transform: uppercase;
   font-size: 1.2rem;
+  border-radius: 0.5rem;
+  width: 300px;
 }
 
 button:disabled {
